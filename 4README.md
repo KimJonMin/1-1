@@ -13,15 +13,14 @@
 5. [Linux 터미널 조작 실습](#5-linux-터미널-조작-실습)
 6. [파일 권한 관리 실습](#6-파일-권한-관리-실습)
 7. [Docker 설치 및 점검](#7-docker-설치-및-점검)
-8. [Docker 데몬·시스템 운영](#8-docker-데몬시스템-운영)
-9. [컨테이너 실행 및 관리](#9-컨테이너-실행-및-관리)
-10. [Dockerfile 커스텀 이미지 빌드](#10-dockerfile-커스텀-이미지-빌드)
-11. [포트 매핑 및 접속 검증](#11-포트-매핑-및-접속-검증)
-12. [Docker 볼륨 영속성 검증](#12-docker-볼륨-영속성-검증)
-13. [Git · GitHub 연동](#13-git--github-연동)
-14. [보안 및 민감정보 보호](#14-보안-및-민감정보-보호)
-15. [트러블슈팅](#15-트러블슈팅)
-16. [회고](#16-회고)
+8. [컨테이너 실행 및 관리](#9-컨테이너-실행-및-관리)
+9. [Dockerfile 커스텀 이미지 빌드](#10-dockerfile-커스텀-이미지-빌드)
+10. [포트 매핑 및 접속 검증](#11-포트-매핑-및-접속-검증)
+11. [Docker 볼륨 영속성 검증](#12-docker-볼륨-영속성-검증)
+12. [Git · GitHub 연동](#13-git--github-연동)
+13. [보안 및 민감정보 보호](#14-보안-및-민감정보-보호)
+14. [트러블슈팅](#15-트러블슈팅)
+15. [회고](#16-회고)
 
 ---
 
@@ -262,28 +261,6 @@ Server:
  Total Memory: 7.76GiB
  Docker Root Dir: /var/lib/docker
 ```
-
-### 7-3. 데몬 상태 점검
-
-```bash
-$ systemctl status docker --no-pager
-● docker.service - Docker Application Container Engine
-     Loaded: loaded (/lib/systemd/system/docker.service; enabled)
-     Active: active (running) since Mon 2025-01-15 09:30:00 KST
-```
-
-### 7-4. 권한 없이 docker 명령 사용하기 (사용자를 docker 그룹에 추가)
-
-```bash
-# 그룹 추가 (최초 1회)
-$ sudo usermod -aG docker $USER
-$ newgrp docker
-
-# sudo 없이 실행 확인
-$ docker ps
-CONTAINER ID   IMAGE   COMMAND   CREATED   STATUS   PORTS   NAMES
-```
-
 ---
 
 ## 8. 컨테이너 실행 및 관리
@@ -339,25 +316,7 @@ root
 nginx version: nginx:alpine
 / # exit
 ```
-
-### 8-4. 컨테이너 생명주기 관리
-
-```bash
-$ docker stop web-test
-web-test
-
-$ docker start web-test
-web-test
-
-$ docker restart web-test
-web-test
-
-$ docker rm -f web-test
-web-test
-```
-
 ---
-
 ## 9. Dockerfile 커스텀 이미지 빌드
 
 ### 9-1. Dockerfile 작성
@@ -470,7 +429,7 @@ healthy
 
 ![브라우저 접속 성공](docs/screenshots/browser_8080.png)
 
-### 11-4. 포트 매핑 변형 예시
+### 10-4. 포트 매핑 변형 예시
 
 | 명령 | 의미 |
 |---|---|
@@ -487,7 +446,7 @@ healthy
 
 **검증 목표**: 컨테이너가 삭제되어도 볼륨에 저장된 데이터는 유지되며, 서로 다른 컨테이너/이미지에서도 동일 볼륨에 접근할 수 있음을 증명한다.
 
-### 12-1. 볼륨 생성 및 연결
+### 11-1. 볼륨 생성 및 연결
 
 ```bash
 $ docker volume create mydata
@@ -509,7 +468,7 @@ $ docker volume inspect mydata
 ]
 ```
 
-### 11-2. 데이터 기록 (1차 컨테이너)
+### 11-2. 데이터 기록 
 
 ```bash
 $ docker run --rm -v mydata:/data alpine \
@@ -520,7 +479,7 @@ $ docker ps -a | grep alpine || echo "컨테이너 없음"
 컨테이너 없음
 ```
 
-### 11-3. 컨테이너 삭제 후 데이터 유지 검증 (1차)
+### 11-3. 컨테이너 삭제 후 데이터 유지 검증 
 
 ```bash
 $ docker run --rm -v mydata:/data alpine cat /data/note.txt
