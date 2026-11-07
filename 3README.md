@@ -102,9 +102,9 @@ docker-mission/
 $ pwd
 /home/user
 
-$ cd ~/workspace && mkdir -p docker-mission && cd docker-mission
+$ mkdir -p docker-mission && cd docker-mission
 $ pwd
-/home/user/workspace/docker-mission
+/home/user/docker-mission
 ```
 
 ### 5-2. 디렉토리/파일 생성
