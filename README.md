@@ -367,7 +367,7 @@ $ docker build -t my-nginx:1.0 .
 $ docker images | grep my-nginx
 my-nginx     1.0       abc123def456   10 seconds ago   42.5MB
 ```
-
+![docker-image](docs/screenshots/docker-image.png)
 ![docker-image-build](docs/screenshots/docker-image-build.png)
 
 ### 9-4. 커스텀 이미지 실행 및 헬스체크 확인
