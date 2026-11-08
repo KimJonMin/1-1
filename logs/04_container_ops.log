@@ -1,7 +1,16 @@
-@"
-=== 컨테이너 작업 로그 ===
-날짜: $(Get-Date)
-"@ | Out-File -FilePath "logs/04_container_ops.log" -Encoding utf8
-
-# 컨테이너 목록 저장
-docker ps -a >> logs/04_container_ops.log
+nspacekan3570@GNIA-C202-J02:~$ docker run -d --name web-test -p 8080:80 nginx:alpine
+Unable to find image 'nginx:alpine' locally
+alpine: Pulling from library/nginx
+da90db506dd5: Pull complete 
+a746bd1dc828: Pull complete 
+e011f124249b: Pull complete 
+69d81d552257: Pull complete 
+c7dfd64eeb02: Pull complete 
+881fc932939e: Pull complete 
+b9c6ee6a30f8: Pull complete 
+1abafee971b9: Pull complete 
+4c900eca9c64: Download complete 
+8801fee91458: Download complete 
+Digest: sha256:713fc2ebfd92e8217db451477182ee91944b123d2b1ee9fd5a8c6e91ca6c3a11
+Status: Downloaded newer image for nginx:alpine
+1620175f4b83825675b32c1cb0000273b59a6d37a903eac14e18b664f8f2e050

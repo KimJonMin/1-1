@@ -129,22 +129,7 @@ drwxr-xr-x  3 user user 4096 Jan 15 10:00 docs
 drwxr-xr-x  2 user user 4096 Jan 15 10:00 logs
 ```
 
-### 5-3. 파일 내용 작성 및 확인
-
-```bash
-$ cat > app/index.html << 'EOF'
-<!DOCTYPE html>
-<html><head><title>Docker Mission</title></head>
-<body><h1>Hello from Docker! 🐳</h1></body></html>
-EOF
-
-$ cat app/index.html
-<!DOCTYPE html>
-<html><head><title>Docker Mission</title></head>
-<body><h1>Hello from Docker! 🐳</h1></body></html>
-```
-
-### 5-4. 복사 · 이동 · 삭제
+### 5-3. 복사 · 이동 · 삭제
 
 ```bash
 $ cp app/index.html app/index.backup.html
@@ -292,6 +277,8 @@ CONTAINER ID   IMAGE          COMMAND                  STATUS         PORTS     
 
 $ docker ps -a    # 중지된 컨테이너까지 전부 보기
 ```
+| ![container](docs/screenshots/container.png)
+
 
 ### 8-3. 로그 · 리소스 · 내부 진입
 
