@@ -1,4 +1,19 @@
-﻿
-mydata-volume
-데이터 저장 완료: hello from container A
-hello from container A
+﻿```bash
+$ docker volume create mydata
+mydata
+
+$ docker volume ls
+DRIVER    VOLUME NAME
+local     mydata
+
+$ docker volume inspect mydata
+[
+    {
+        "CreatedAt": "2025-01-15T11:00:00Z",
+        "Driver": "local",
+        "Mountpoint": "/var/lib/docker/volumes/mydata/_data",
+        "Name": "mydata",
+        "Scope": "local"
+    }
+]
+```

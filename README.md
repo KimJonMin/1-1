@@ -446,11 +446,11 @@ healthy
 
 > 전체 로그: [`logs/05_volume_test.log`](logs/05_volume_test.log)
 
+![docker-volume](docs/screenshots/docker-volume.png)
+
 **검증 목표**: 컨테이너가 삭제되어도 볼륨에 저장된 데이터는 유지되며, 서로 다른 컨테이너/이미지에서도 동일 볼륨에 접근할 수 있음을 증명한다.
 
 ### 11-1. 볼륨 생성 및 연결
-
-![docker-volume](docs/screenshots/docker-volume.png)
 
 ```bash
 $ docker volume create mydata
@@ -482,6 +482,8 @@ $ docker run --rm -v mydata:/data alpine \
 $ docker ps -a | grep alpine || echo "컨테이너 없음"
 컨테이너 없음
 ```
+
+![data](docs/screenshots/data.png)
 
 ### 11-3. 컨테이너 삭제 후 데이터 유지 검증 
 
