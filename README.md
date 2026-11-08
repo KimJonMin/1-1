@@ -450,6 +450,8 @@ healthy
 
 ### 11-1. 볼륨 생성 및 연결
 
+![docker-volume](docs/screenshots/docker-volume.png)
+
 ```bash
 $ docker volume create mydata
 mydata
