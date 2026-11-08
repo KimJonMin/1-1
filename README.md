@@ -292,11 +292,6 @@ $ docker logs web-test
 # 실시간 로그 추적
 $ docker logs -f web-test
 
-# 리소스 사용량 모니터링
-$ docker stats --no-stream
-CONTAINER ID   NAME       CPU %   MEM USAGE / LIMIT   MEM %   NET I/O       BLOCK I/O
-7f8a9b0c1d2e   web-test   0.00%   3.2MiB / 7.76GiB    0.04%   1.2kB / 0B    0B / 0B
-
 # 컨테이너 내부 진입
 $ docker exec -it web-test sh
 / # whoami
@@ -368,6 +363,8 @@ $ docker build -t my-nginx:1.0 .
  => [3/4] COPY app/ /usr/share/nginx/html/              0.1s
  => exporting to image                                  0.2s
  => => naming to docker.io/library/my-nginx:1.0
+
+![docker image build](docs/screenshots/docker image build.png)
 
 $ docker images | grep my-nginx
 my-nginx     1.0       abc123def456   10 seconds ago   42.5MB
