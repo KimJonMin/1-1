@@ -495,6 +495,8 @@ persist-ok        # ✅ 데이터 유지 확인!
 **학습 포인트**: 볼륨은 **파일시스템 레벨**에서 마운트되므로, 베이스 이미지(alpine, ubuntu, busybox 등)와 완전히 독립적이다.
 ```
 
+![data-history](docs/screenshots/data-history.png)
+
 ```
 ### 11-4. 검증 결과 요약
 
@@ -529,6 +531,8 @@ $ docker volume ls | grep mydata || echo "볼륨 삭제 완료"
 볼륨 삭제 완료
 ```
 
+![docker-volume-history](docs/screenshots/docker-volume-history.png)
+
 **결론**
 - 볼륨은 **컨테이너의 수명과 완전히 분리**되어 독립적으로 존재한다.
 - **상태(state)를 가진 데이터**(DB, 사용자 업로드, 로그 등)는 반드시 볼륨에 저장해야 한다.
@@ -550,6 +554,8 @@ user.name=홍길동
 user.email=student@example.com
 init.defaultBranch=main
 ```
+
+![git-init](docs/screenshots/git-int.png)
 
 ### 12-2. 저장소 초기화 및 첫 커밋
 
