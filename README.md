@@ -46,8 +46,8 @@
 | 에디터 | VS Code 1.85 |
 | 브라우저 | Chrome 120 |
 
-![버전확인_우분투](screenshot.png)
-![버전확인_Docker](screenshot.png)
+| ![우분투 버전](docs/screenshots/ubuntu.png)
+| ![도커 버전](docs/screenshots/docker.png)
 ---
 
 ## 3. 저장소 구조
