@@ -373,14 +373,16 @@ my-nginx     1.0       abc123def456   10 seconds ago   42.5MB
 ### 9-4. 커스텀 이미지 실행 및 헬스체크 확인
 
 ```bash
-$ docker run -d --name my-web -p 8080:80 my-nginx:1.0
+$ docker run -d --name my-web -p 8081:80 my-nginx:1.0
 xyz789abc123
 
 # 헬스체크 상태 확인 (약 30초 대기 후)
 $ docker ps
 CONTAINER ID   IMAGE          STATUS                   PORTS                  NAMES
-xyz789abc123   my-nginx:1.0   Up 45 seconds (healthy)  0.0.0.0:8080->80/tcp   my-web
+xyz789abc123   my-nginx:1.0   Up 45 seconds (healthy)  0.0.0.0:8081->80/tcp   my-web
 ```
+
+![docker-port-check](docs/screenshots/docker-port-check.png)
 
 ---
 
