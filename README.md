@@ -555,7 +555,7 @@ user.email=student@example.com
 init.defaultBranch=main
 ```
 
-![git-init](docs/screenshots/git-int.png)
+![git-init](docs/screenshots/git-init.png)
 
 ### 12-2. 저장소 초기화 및 첫 커밋
 
