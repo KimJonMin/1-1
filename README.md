@@ -630,7 +630,7 @@ To https://github.com/USERNAME/docker-mission.git
 
 ### 12-6. 푸시 완료 스크린샷
 
-![GitHub 푸시 완료](docs/screenshots/vscode_github.png)
+![git-push](docs/screenshots/git-push.png)
 
 ---
 
@@ -712,16 +712,38 @@ logs/
 
 **원인**: 현재 사용자가 `docker` 그룹에 속하지 않음
 
+**1단계: 현재 사용자의 그룹 확인**
+```bash
+
+$ groups $USER
+user adm cdrom sudo dip plugdev lpadmin sambashare
+# docker 그룹이 없음!
+
+$ docker ps
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: 
+Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json": dial unix /var/run/docker.sock: 
+connect: permission denied
+
 **해결**:
 ```bash
 $ sudo usermod -aG docker $USER
 $ newgrp docker              # 또는 재로그인
 $ docker ps                  # 정상 동작 확인
 ```
+$ groups $USER
+user adm cdrom sudo dip plugdev lpadmin sambashare docker
+# docker 그룹이 추가됨!
+
+![tr-1](docs/screenshots/tr-1.png)
+
 
 ### 14-2. `bind: address already in use` (포트 충돌)
 
 **원인**: 호스트의 해당 포트를 이미 다른 프로세스가 사용 중
+
+$ docker run -d -p 8080:80 nginx:alpine
+docker: Error response from daemon: driver failed programming external connectivity on endpoint 
+(컨테이너ID): Error starting userland proxy: listen tcp 0.0.0.0:8080: bind: address already in use.
 
 **해결**:
 ```bash
@@ -736,6 +758,8 @@ $ sudo kill -9 123
 # 방법 2: 다른 포트로 매핑
 $ docker run -d -p 8081:80 nginx:alpine
 ```
+
+![tr-2](docs/screenshots/tr-2.png)
 
 ### 14-3. `COPY failed: file not found in build context`
 
