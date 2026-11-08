@@ -53,27 +53,20 @@
 ## 3. 저장소 구조
 
 ```
-docker-mission/
-├── README.md                      # 본 문서
-├── Dockerfile                     # 커스텀 nginx 이미지 정의
-├── .gitignore                     # 민감정보/빌드 산출물 제외
-├── .dockerignore                  # 이미지 빌드 제외 규칙
-├── app/
-│   └── index.html                 # nginx가 서빙할 샘플 페이지
-├── config/
-│   └── nginx.conf                 # 커스텀 nginx 설정
-├── logs/
-│   ├── 01_terminal.log            # 터미널 조작 실행 로그
-│   ├── 02_permission.log          # 권한 변경 실습 로그
-│   ├── 03_docker_install.log      # Docker 설치/점검 로그
-│   ├── 04_container_ops.log       # 컨테이너 실행/관리 로그
-│   └── 05_volume_test.log         # 볼륨 영속성 검증 로그
-└── docs/
-    └── screenshots/
-        ├── browser_8080.png       # 브라우저 접속 성공 화면
-        ├── volume_persist.png     # 볼륨 영속성 검증 화면
-        ├── docker_ps.png          # 컨테이너 실행 상태
-        └── vscode_github.png      # GitHub 푸시 완료 화면
+/mnt/c/Users/nspacekan357/1-1/
+├── docs/
+│   ├── screenshots/
+│   │   ├── README.md          # 본 문서
+│   │   ├── Dockerfile         # 커스텀 nginx 이미지 정의
+│   │   ├── kerfile
+│   │   ├── .gitignore         # 민감정보/빌드 산출물 제외
+│   │   ├── .dockerignore      # 이미지 빌드 제외 규칙
+│   │   ├── app/
+│   │   │   └── index.html     # nginx가 서빙할 샘플 페이지
+│   │   └── config/
+│   │       └── nginx.conf     # 커스텀 nginx 설정
+│   └── (상위 디렉토리)
+└── (다른 폴더들)
 ```
 
 ---
@@ -435,8 +428,8 @@ healthy
 
 | 명령 | 의미 |
 |---|---|
-| `-p 8080:80` | 호스트 8080 → 컨테이너 80 |
-| `-p 127.0.0.1:8080:80` | 로컬에서만 접근 허용 (외부 차단) |
+| `-p 8080:80` | 호스트 8081 → 컨테이너 80 |
+| `-p 127.0.0.1:8081:80` | 로컬에서만 접근 허용 (외부 차단) |
 | `-p 80` | 호스트 포트 자동 할당 (랜덤) |
 | `-P` | Dockerfile의 `EXPOSE` 포트 모두 자동 매핑 |
 
