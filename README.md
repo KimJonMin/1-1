@@ -129,7 +129,20 @@ drwxr-xr-x  3 user user 4096 Jan 15 10:00 docs
 drwxr-xr-x  2 user user 4096 Jan 15 10:00 logs
 ```
 
-### 5-3. 복사 · 이동 · 삭제
+### 5-3. 파일 내용 작성 및 확인
+$ cat > app/index.html << 'EOF'
+<!DOCTYPE html>
+<html><head><title>Docker Mission</title></head>
+<body><h1>Hello from Docker! 🐳</h1></body></html>
+EOF
+
+$ cat app/index.html
+<!DOCTYPE html>
+<html><head><title>Docker Mission</title></head>
+<body><h1>Hello from Docker! 🐳</h1></body></html>
+
+
+### 5-4. 복사 · 이동 · 삭제
 
 ```bash
 $ cp app/index.html app/index.backup.html
@@ -144,7 +157,7 @@ $ rm app/index.bak
 $ ls app/
 index.html
 ```
-
+![hello](docs/screenshots/hello.png)
 ---
 
 ## 6. 파일 권한 관리 실습
