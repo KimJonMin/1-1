@@ -47,6 +47,7 @@
 | 브라우저 | Chrome 120 |
 
 ![버전확인_우분투](screenshot.png)
+![버전확인_Docker](screenshot.png)
 ---
 
 ## 3. 저장소 구조
