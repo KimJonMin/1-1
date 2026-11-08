@@ -859,38 +859,8 @@ $ docker run --rm -v mydata:/data -v $(pwd):/backup alpine \
    - 재발급 후 비밀번호 관리자에 안전 저장
    - **교훈**: 토큰은 비밀번호와 동급. 발급 즉시 안전한 곳에 보관
 
-### 15-3. 재현 가이드 (이 저장소를 받은 다른 사람을 위한 안내)
 
-```bash
-# 1. 저장소 클론
-$ git clone https://github.com/USERNAME/docker-mission.git
-$ cd docker-mission
-
-# 2. Docker 설치 확인
-$ docker --version
-# → 24.0 이상 필요
-
-# 3. 이미지 빌드
-$ docker build -t my-nginx:1.0 .
-
-# 4. 컨테이너 실행
-$ docker run -d --name my-web -p 8080:80 my-nginx:1.0
-
-# 5. 브라우저에서 확인
-# → http://localhost:8080 접속
-
-# 6. 볼륨 영속성 테스트 (선택)
-$ docker volume create mydata
-$ docker run --rm -v mydata:/data alpine sh -c "echo 'test' > /data/note.txt"
-$ docker run --rm -v mydata:/data alpine cat /data/note.txt
-# → "test" 출력되면 정상
-
-# 7. 정리
-$ docker rm -f my-web
-$ docker volume rm mydata
-```
-
-### 15-4. 이 프로젝트가 증명하는 것
+### 15-3. 이 프로젝트가 증명하는 것
 
 > **"내 컴퓨터에서는 되는데..." 라는 말이 더 이상 변명이 되지 않는 환경**
 
