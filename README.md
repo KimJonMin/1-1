@@ -403,14 +403,14 @@ xyz789abc123   my-nginx:1.0   Up 45 seconds (healthy)  0.0.0.0:8081->80/tcp   my
 ### 10-1. 포트 매핑 원리
 
 ```
-[호스트] localhost:8080  ──►  [컨테이너] :80
-            (-p 8080:80 옵션)
+[호스트] localhost:8081  ──►  [컨테이너] :80
+            (-p 8081:80 옵션)
 ```
 
 ### 10-2. 접속 테스트 (CLI)
 
 ```bash
-$ curl -i http://localhost:8080
+$ curl -i http://localhost:8081
 HTTP/1.1 200 OK
 Server: nginx/1.25.3
 Content-Type: text/html
@@ -421,13 +421,15 @@ Content-Length: 115
 <body><h1>Hello from Docker! 🐳</h1></body></html>
 
 # 헬스체크 엔드포인트
-$ curl http://localhost:8080/health
+$ curl http://localhost:8081/health
 healthy
 ```
 
 ### 10-3. 브라우저 접속 스크린샷
 
 ![브라우저 접속 성공](docs/screenshots/browser_8080.png)
+
+![welcome](docs/screenshots/welcome.png)
 
 ### 10-4. 포트 매핑 변형 예시
 
