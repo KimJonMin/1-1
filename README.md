@@ -278,7 +278,7 @@ CONTAINER ID   IMAGE          COMMAND                  STATUS         PORTS     
 $ docker ps -a    # 중지된 컨테이너까지 전부 보기
 ```
 ![container](docs/screenshots/container.png)
-
+![docker-image](docs/screenshots/docker-image.png)
 
 ### 8-3. 로그 · 리소스 · 내부 진입
 
@@ -367,7 +367,6 @@ $ docker build -t my-nginx:1.0 .
 $ docker images | grep my-nginx
 my-nginx     1.0       abc123def456   10 seconds ago   42.5MB
 ```
-![docker-image](docs/screenshots/docker-image.png)
 ![docker-image-build](docs/screenshots/docker-image-build.png)
 
 ### 9-4. 커스텀 이미지 실행 및 헬스체크 확인
