@@ -382,7 +382,7 @@ CONTAINER ID   IMAGE          STATUS                   PORTS                  NA
 xyz789abc123   my-nginx:1.0   Up 45 seconds (healthy)  0.0.0.0:8081->80/tcp   my-web
 ```
 
-![docker-port-check](docs/screenshots/ddocker-port-check.png)
+![docker-port-check](screenshots/docker-port-check.png)
 
 ---
 
