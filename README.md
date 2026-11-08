@@ -890,12 +890,6 @@ $ docker rm -f my-web
 $ docker volume rm mydata
 ```
 
-**필요 사양**
-- OS: Linux / macOS / Windows (WSL2)
-- Docker Engine 20.10 이상
-- 디스크 여유 공간 1GB 이상
-- 포트 8080 사용 가능
-
 ### 15-4. 이 프로젝트가 증명하는 것
 
 > **"내 컴퓨터에서는 되는데..." 라는 말이 더 이상 변명이 되지 않는 환경**
