@@ -277,7 +277,7 @@ CONTAINER ID   IMAGE          COMMAND                  STATUS         PORTS     
 
 $ docker ps -a    # 중지된 컨테이너까지 전부 보기
 ```
-| ![container](docs/screenshots/container.png)
+|![container](docs/screenshots/container.png)
 
 
 ### 8-3. 로그 · 리소스 · 내부 진입
