@@ -760,6 +760,7 @@ $ docker run -d -p 8081:80 nginx:alpine
 ```
 
 ![tr-2](docs/screenshots/tr-2.png)
+```
 
 ### 14-3. `COPY failed: file not found in build context`
 
@@ -809,7 +810,7 @@ $ docker run -d --name debug alpine sleep infinity
 $ docker exec -it debug sh
 ```
 
-### 15-6. 볼륨 데이터가 사라짐
+### 14-6. 볼륨 데이터가 사라짐
 
 **원인**: `docker volume rm` 또는 `docker system prune --volumes` 실행
 
@@ -823,6 +824,7 @@ $ docker run --rm -v mydata:/data -v $(pwd):/backup alpine \
 $ docker run --rm -v mydata:/data -v $(pwd):/backup alpine \
     tar xzf /backup/mydata-backup.tar.gz -C /data
 ```
+![tr-3](docs/screenshots/tr-3.png)
 
 ## 15. 회고
 
