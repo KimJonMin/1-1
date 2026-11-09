@@ -281,8 +281,6 @@ docker run -d -p 8080:80 my-web-server
 
 ![welcome](docs/screenshots/welcome.png)
 
-![docker-file-new](docs/screenshots/docker-file-new.png)
-
 
 # Docker Hello
 ![docker-hello-1](docs/screenshots/docker-hello-1.png)
