@@ -224,11 +224,11 @@ docker run -d -p 8080:80 my-web-server
 ![docker-file-new](docs/screenshots/docker-file-new.png)
 
 
-Docker Hello
-![docker-hello](docs/screenshots/docker-hello.png)
+# Docker Hello
+![docker-hello-1](docs/screenshots/docker-hello-1.png)
 
 
-커스텀이미지 제작
+# 커스텀이미지 제작
 
 ![custom-image-lsit](docs/screenshots/custom-image-lsit.png)
 
