@@ -252,6 +252,9 @@ docker ps
 
 > ✅ 브라우저에 "Welcome to nginx!" 가 뜨면 성공이에요!
 
+=> locahost:8080 과 창에 뜬 locahost:8081 차이 발생 이유
+   8080포트가 현재 사용중으로 8081 포트를 사용하여 연결함
+
 ### 5-5. Dockerfile 만들어보기
 
 ```dockerfile
@@ -331,6 +334,10 @@ docker run -d -p 8080:80 my-web-server
 ![docker-port-check.1](docs/screenshots/docker-port-check.1.png)
 
 ![docker-vloum-check](docs/screenshots/docker-vloum-check.png)
+
+=> index.html이 파일이 아니라 폴더였기 때문에 에러 발생 -> 삭제후 다시 
+   echo "<h1>Hello Docker!</h1>" > index.html: 이제 진짜 내용이 들어있는 index.html 파일을 새로 생성 후 진행
+
 
 Docker 볼륨 영속성 검증
 
