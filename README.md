@@ -615,58 +615,6 @@ sudo lsof -i :8080
 
 # 🛠️ Docker 트러블슈팅 보고서
 
----
-
-## Case 1. Dockerfile 파일명 오류 문제
-
-### 1. 문제 (Problem)
-- **명령어**: `mv Dockerfile.txt Dockerfile` 실행 시 오류 발생
-- **에러 메시지**:
-  ```
-  mv: cannot stat 'Dockerfile.txt': No such file or directory
-  ```
-- **현상**: `Dockerfile.txt`라는 이름의 파일이 존재하지 않아 이름 변경 실패.
-
----
-
-### 2. 원인 가설 (Hypothesis)
-1. **파일명 불일치**: 실제 파일 이름이 `Dockerfile.txt`가 아닌 다른 이름(예: `docker.1`)으로 저장되어 있을 가능성.
-2. **파일 미생성**: Dockerfile 자체가 아직 생성되지 않았을 가능성.
-
----
-
-### 3. 확인 (Verification)
-
-#### 3.1 현재 디렉토리 파일 목록 확인
-```bash
-ls
-```
-- 실제 존재하는 파일 이름을 확인합니다.
-- **확인 결과**: `docker.1`, `index.html` 파일이 존재함을 확인.
-
----
-
-### 4. 해결 및 대안 (Solution/Alternative)
-
-#### ✅ 방법 1: 실제 파일명으로 변경 (근본 해결)
-`ls`로 확인한 실제 파일명(`docker.1`)을 사용하여 이름을 변경합니다.
-```bash
-mv docker.1 Dockerfile
-```
-- 변경 후 `ls`로 `Dockerfile`이 정상 생성되었는지 재확인합니다.
-```bash
-ls
-# 결과: Dockerfile  index.html ✅
-```
-
-#### ✅ 방법 2: Dockerfile 직접 생성 (대안)
-파일 자체가 없다면 새로 생성합니다.
-```bash
-vi Dockerfile
-# 또는
-touch Dockerfile
-```
-
 ## Case 1. 포트 충돌 문제 (Port Already Allocated)
 
 ### 1. 문제 (Problem)
