@@ -293,11 +293,10 @@ docker run -d -p 8080:80 my-web-server
 
 ![custom-image-lsit](docs/screenshots/custom-image-lsit.png)
 "
-
 => Dockerfile.txt라는 파일을 찾으려 했으나, 해당 폴더에 그 이름의 파일이 없어서   
    발생한 에러
-   
-"
+   docker.1이라는 이름을 가진 파일을 **Dockerfile**로 이름을 바꾸
+
 ![custom-image](docs/screenshots/custom-image.png)
 
 
