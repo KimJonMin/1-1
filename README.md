@@ -65,6 +65,7 @@
                               ▼
                     [Git으로 팀원과 공유하기 👫]
 ```
+![Folder-tree](docs/screenshots/Folder-tree.png)
 
 ---
 
