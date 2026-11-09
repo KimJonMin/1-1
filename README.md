@@ -308,6 +308,9 @@ git config --global user.email "내이메일@example.com"
 # 3. 프로젝트 폴더에서 Git 시작
 git init
 
+![git-version](docs/screenshots/git-version.png)
+
+
 # 4. 파일 만들고 저장해보기
 echo "Hello, Git!" > hello.txt
 
@@ -320,6 +323,8 @@ git commit -m "첫 번째 파일 추가"
 # 7. 저장 기록 확인
 git log --oneline
 ```
+
+![git-up](docs/screenshots/git-up.png)
 
 > ✅ 커밋 기록이 뜨면 성공이에요!
 
