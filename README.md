@@ -120,6 +120,7 @@ pwd
 
 ![CLI-commd](docs/screenshots/CLI-commd.png)
 
+
 ---
 
 ## 5. 🍱 Docker — 마법 도시락통
@@ -168,6 +169,8 @@ Docker 사용:
 ```bash
 # 1. Docker 설치 확인
 docker --version
+
+![docker](docs/screenshots/docker.png)
 
 # 2. 테스트용 컨테이너 실행 (hello-world)
 docker run hello-world
