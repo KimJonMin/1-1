@@ -463,49 +463,6 @@ git init
 □ 8단계: 팀원 컴퓨터에서 똑같이 실행되는지 확인하기
 ```
 
-#### 통합 미션 실습 코드
-
-```bash
-# ── 1단계: 폴더 만들기 ──────────────────────────
-mkdir my-web-project
-cd my-web-project
-
-# ── 2단계: index.html 만들기 ────────────────────
-cat > index.html << EOF
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>내 첫 번째 웹 서버</title>
-  </head>
-  <body>
-    <h1>🎉 Docker로 만든 웹 서버!</h1>
-    <p>어디서나 똑같이 실행돼요!</p>
-  </body>
-</html>
-EOF
-
-# ── 3단계: Dockerfile 만들기 ────────────────────
-cat > Dockerfile << EOF
-FROM nginx:latest
-COPY index.html /usr/share/nginx/html/index.html
-EXPOSE 80
-EOF
-
-# ── 4단계: 이미지 빌드하기 ──────────────────────
-docker build -t my-web-project .
-
-# ── 5단계: 컨테이너 실행하기 ────────────────────
-docker run -d -p 8080:80 my-web-project
-# 👉 브라우저에서 http://localhost:8080 확인!
-
-# ── 6단계: Git 저장하기 ─────────────────────────
-git init
-git add .
-git commit -m "첫 번째 웹 프로젝트 완성!"
-
-# ── 7단계: GitHub에 올리기 ──────────────────────
-git remote add origin https://github.com/내아이디/my-web-project.git
-git push -u origin main
 ```
 
 > ✅ 최종 확인:
@@ -564,33 +521,6 @@ git push -u origin main
 
 ---
 
-### 10-3. 참고 자료
-
-#### 📖 공식 문서
-
-```
-🐳 Docker 공식 문서
-   → https://docs.docker.com
-
-🌿 Git 공식 문서
-   → https://git-scm.com/doc
-
-🐧 Linux 명령어 모음
-   → https://linux.die.net
-```
-
-#### 🎮 무료 실습 사이트
-
-```
-🐳 Docker 실습 (브라우저에서 바로 가능!)
-   → https://labs.play-with-docker.com
-
-🌿 Git 실습 (게임처럼 배우기!)
-   → https://learngitbranching.js.org
-
-🐧 Linux 실습 (단계별 학습!)
-   → https://linuxjourney.com
-```
 
 #### 📺 추천 학습 방법
 
