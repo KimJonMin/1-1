@@ -38,7 +38,7 @@
 
  ## 수행 항목 체크리스트
 
-- [x] Linux 기본 명령어 실습 (pwd/ls/cd/mkdir/cp/mv/rm/chmod/touch/cat)
+- [x] Linux 기본 명령어 실습 (pwd/ls/cd/mkdir/rm)
 - [x] 파일/디렉토리 확인
 - [x] Docker 설치 확인 및 데몬 상태 점검
 - [x] 공식 이미지(nginx) 컨테이너 실행
