@@ -336,7 +336,7 @@ docker run -d -p 8080:80 my-web-server
 ![docker-vloum-check](docs/screenshots/docker-vloum-check.png)
 
 => index.html이 파일이 아니라 폴더였기 때문에 에러 발생 -> 삭제후 다시 
-   echo "<h1>Hello Docker!</h1>" > index.html: 이제 진짜 내용이 들어있는 index.html 파일을 새로 생성 후 진행
+   echo "<h1>Hello Docker!</h1>" > index.html: 이제 진짜 내용이 들어있는 index.html 파일을 새로 생성
 
 
 Docker 볼륨 영속성 검증
