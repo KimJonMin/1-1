@@ -36,6 +36,19 @@
    - 누구나 똑같은 환경에서 실행할 수 있게 안내한다
 
 
+ ## 수행 항목 체크리스트
+
+- [x] Linux 기본 명령어 실습 (pwd/ls/cd/mkdir/cp/mv/rm/chmod/touch/cat)
+- [x] 파일/디렉토리 확인
+- [x] Docker 설치 확인 및 데몬 상태 점검
+- [x] 공식 이미지(nginx) 컨테이너 실행
+- [x] Dockerfile로 커스텀 이미지 빌드
+- [x] 포트 매핑으로 브라우저 접속 성공
+- [x] 바인드 마운트로 호스트-컨테이너 파일 공유
+- [x] 명명된 볼륨으로 데이터 영속성 검증
+- [x] Git 저장소 초기화 및 GitHub 원격 연동
+
+
 ## 1. 😤 이런 경험 있으신가요?
 
 ```
@@ -120,6 +133,52 @@ pwd
 
 ![command-list](docs/screenshots/command-list.png)
 
+
+### 4-4. 파일 권한 변경 (chmod)
+
+```bash
+# 소유자만 읽기/쓰기, 그룹/타인은 읽기만
+$ chmod 644 app/index.html
+$ ls -l app/index.html
+-rw-r--r-- 1 user user 115 Jan 15 10:05 app/index.html
+
+# 실행 권한 추가 테스트
+$ chmod +x app/index.html
+$ ls -l app/index.html
+-rwxr-xr-x 1 user user 115 Jan 15 10:05 app/index.html
+
+# 원복
+$ chmod 644 app/index.html
+$ ls -l app/index.html
+-rw-r--r-- 1 user user 115 Jan 15 10:05 app/index.html
+```
+
+### 4-5. 디렉토리 권한 변경
+
+```bash
+# 소유자: 모든 권한, 그룹/타인: 읽기+실행
+$ chmod 755 app/
+$ ls -ld app/
+drwxr-xr-x 2 user user 4096 Jan 15 10:05 app/
+
+# 더 제한적인 권한 (소유자만 접근)
+$ chmod 700 config/
+$ ls -ld config/
+drwx------ 2 user user 4096 Jan 15 10:05 config/
+
+# 원복
+$ chmod 755 config/
+```
+
+### 4-6. 권한 체계 요약
+
+| 숫자 | 기호 | 의미 |
+|---|---|---|
+| 7 | rwx | 읽기+쓰기+실행 |
+| 6 | rw- | 읽기+쓰기 |
+| 5 | r-x | 읽기+실행 |
+| 4 | r-- | 읽기만 |
+| 0 | --- | 권한 없음 |
 
 ---
 
@@ -278,6 +337,11 @@ Docker 볼륨 영속성 검증
 
 ![volum-0](docs/screenshots/volum-0.png)
 
+**결론**
+- 볼륨은 **컨테이너의 수명과 완전히 분리**되어 독립적으로 존재한다.
+- **상태(state)를 가진 데이터**(DB, 사용자 업로드, 로그 등)는 반드시 볼륨에 저장해야 한다.
+- 컨테이너는 **일회성(disposable)**, 볼륨은 **영속적(persistent)** 이라는 원칙을 기억하자.
+
 ---
 
 ## 6. 💾 Git / GitHub — 코드 세이브 버튼
@@ -373,29 +437,37 @@ git log --oneline
 
 ---
 
-## 8. ❓ 자주 하는 실수 & 해결법
+## 8. ❓ 보안 및 민감정보 보호
 
-### 8-1. 🚨 "docker: command not found"
+```gitignore
+# 민감정보 및 환경변수
+.env
+.env.local
+*.key
+*.pem
+secrets/
+credentials.json
 
-```bash
-# Docker가 설치 안 된 것!
-# 공식 사이트에서 설치하세요
-# https://docs.docker.com/get-docker/
-```
+# 로그 (실습 로그는 예외적으로 포함, 운영 로그는 제외)
+*.log
+!logs/*.log
 
-### 8-2. 🚨 "port is already allocated"
+# OS 생성 파일
+.DS_Store
+Thumbs.db
 
-```bash
-# 이미 그 포트를 다른 프로그램이 쓰고 있어요
-# 포트 번호를 바꿔보세요
-docker run -d -p 8081:80 nginx  # 8080 → 8081로 변경
-```
+# 에디터 설정
+.vscode/
+.idea/
+*.swp
 
-### 8-3. 🚨 "git: not a git repository"
+# Python
+__pycache__/
+*.pyc
+venv/
 
-```bash
-# git init을 먼저 해야 해요!
-git init
+# Node
+node_modules/
 ```
 
 ---
