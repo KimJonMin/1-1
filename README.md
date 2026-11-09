@@ -419,7 +419,7 @@ git log --oneline
 
 ![git-up](docs/screenshots/git-up.png)
 
-![git-user](docs/screenshots/git-user.png)
+![git-user.](docs/screenshots/git-user..png)
 
 > ✅ 커밋 기록이 뜨면 성공이에요!
 
