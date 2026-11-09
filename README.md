@@ -217,9 +217,10 @@ docker run -d -p 8080:80 my-web-server
 
 ![docker-file](docs/screenshots/docker-file.png)
 
+![docker-file-run](docs/screenshots/docker-file-run.png)
 ![docker-file-new](docs/screenshots/docker-file-new.png)
 
-![docker-file-run](docs/screenshots/docker-file-run.png)
+
 
 ### 5-6. 포트(Port)가 뭔가요?
 
