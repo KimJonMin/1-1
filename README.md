@@ -264,6 +264,8 @@ docker run -d -p 8080:80 my-web-server
 
 ![docker-vloum-check](docs/screenshots/docker-vloum-check.png)
 
+Docker 볼륨 영속성 검증
+
 ![volum-0](docs/screenshots/volum-0.png)
 
 ---
