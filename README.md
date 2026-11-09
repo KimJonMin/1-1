@@ -257,6 +257,9 @@ docker run -d -p 8080:80 my-web-server
 | 주로 쓰는 상황 | 개발 중 코드 수정 | 데이터베이스 저장 |
 
 ![docker-port-check.1](docs/screenshots/docker-port-check.1.png)
+
+![docker-vloum-check](docs/screenshots/docker-vloum-check.png)
+
 ---
 
 ## 6. 💾 Git / GitHub — 코드 세이브 버튼
