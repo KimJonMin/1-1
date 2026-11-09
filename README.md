@@ -170,7 +170,6 @@ Docker 사용:
 # 1. Docker 설치 확인
 docker --version
 
-![docker](docs/screenshots/docker.png)
 
 # 2. 테스트용 컨테이너 실행 (hello-world)
 docker run hello-world
@@ -186,6 +185,7 @@ docker ps
 # 5. 브라우저에서 확인
 # 👉 http://localhost:8080 접속해보세요!
 ```
+![docker](docs/screenshots/docker.png)
 
 > ✅ 브라우저에 "Welcome to nginx!" 가 뜨면 성공이에요!
 
