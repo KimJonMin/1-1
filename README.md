@@ -218,6 +218,9 @@ docker run -d -p 8080:80 my-web-server
 ![docker-file](docs/screenshots/docker-file.png)
 
 ![docker-file-run](docs/screenshots/docker-file-run.png)
+
+![welcome](docs/screenshots/welcome.png)
+
 ![docker-file-new](docs/screenshots/docker-file-new.png)
 
 
@@ -260,6 +263,8 @@ docker run -d -p 8080:80 my-web-server
 ![docker-port-check.1](docs/screenshots/docker-port-check.1.png)
 
 ![docker-vloum-check](docs/screenshots/docker-vloum-check.png)
+
+![volum-0](docs/screenshots/volum-0.png)
 
 ---
 
