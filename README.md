@@ -224,6 +224,12 @@ docker run -d -p 8080:80 my-web-server
 ![docker-file-new](docs/screenshots/docker-file-new.png)
 
 
+커스텀이미지 제작
+
+![custom-image-lsit](docs/screenshots/custom-image-lsit.png)
+
+![custom-image](docs/screenshots/custom-image.png)
+
 
 ### 5-6. 포트(Port)가 뭔가요?
 
