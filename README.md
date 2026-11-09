@@ -118,7 +118,7 @@ pwd
 
 > ✅ 결과: 화면에 경로가 뜨면 성공이에요!
 
-![CLI-commd](docs/screenshots/CLI-commd.png)
+![command-list](docs/screenshots/command-list.png)
 
 
 ---
@@ -620,6 +620,9 @@ git push -u origin main
 🎯 최종 목표 한 문장:
 "누가, 어디서, 언제 실행해도 똑같이 동작하는 환경 만들기!"
 ```
+
+
+
 
 
 
