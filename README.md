@@ -66,7 +66,6 @@
                     [Git으로 팀원과 공유하기 👫]
 ```
 ![Folder-tree](docs/screenshots/Folder-tree.png)
-
 ---
 
 ## 3. 🧰 핵심 도구 3가지
@@ -118,6 +117,8 @@ pwd
 ```
 
 > ✅ 결과: 화면에 경로가 뜨면 성공이에요!
+
+![CLI-commd](docs/screenshots/CLI-commd.png)
 
 ---
 
