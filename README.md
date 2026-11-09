@@ -186,6 +186,9 @@ docker ps
 # 👉 http://localhost:8080 접속해보세요!
 ```
 ![docker](docs/screenshots/docker.png)
+![docker-run](docs/screenshots/docker-run.png)
+![welcome](docs/screenshots/welcome.png)
+
 
 > ✅ 브라우저에 "Welcome to nginx!" 가 뜨면 성공이에요!
 
