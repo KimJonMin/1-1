@@ -593,6 +593,7 @@ docker run -d -p 8081:80 my-web-server
 ```
 → `http://localhost:8081` 로 접속
 
+![trouble-1](docs/screenshots/trouble-1.png)
 
 
 # 🛠️ Docker Git 커밋 실패 트러블슈팅.2
@@ -631,6 +632,8 @@ git add ../docs/screenshots/b-m.png
 git rm ../docs/screenshots/Bindmount-test.png
 git commit -m "커밋 메시지"
 ```
+![trouble-2](docs/screenshots/trouble-2.png)
+
 
 ## 10. 회고
 
