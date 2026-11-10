@@ -296,7 +296,7 @@ docker run -d -p 8080:80 my-web-server
 ![d-c-f](docs/screenshots/d-c-f.png)
 ![d-c-f2](docs/screenshots/d-c-f2.png)
 ![d-c-f3](docs/screenshots/d-c-f3.png)
-![d-c-f4](docs/screenshots/d-c-f4.png)
+![d-c-f5](docs/screenshots/d-c-f5.png)
 
 
 ![custom-image](docs/screenshots/custom-image.png)
