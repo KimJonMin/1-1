@@ -572,26 +572,21 @@ node_modules/
 
 ## 문제
 `docker run -d -p 8080:80 my-web-server` 실행 시 아래 에러 발생
-
 ```
 Bind for 0.0.0.0:8080 failed: port is already allocated
 ```
-
 ## 원인 가설
 이전에 실행한 컨테이너가 8080 포트를 아직 점유하고 있음
-
 ## 확인
 ```bash
 docker ps
 ```
 → 8080 포트를 사용 중인 컨테이너 존재 확인
-
 ## 해결
 ```bash
 docker stop $(docker ps -q)
 docker run -d -p 8080:80 my-web-server
 ```
-
 ## 대안
 ```bash
 docker run -d -p 8081:80 my-web-server
@@ -600,19 +595,16 @@ docker run -d -p 8081:80 my-web-server
 
 
 
-# Git 커밋 실패 트러블슈팅.2
+# 🛠️ Docker Git 커밋 실패 트러블슈팅.2
 
 ## 문제
 `git add .` 후 `git commit` 실행 시 커밋이 되지 않음
-
 ```
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
-
 ## 원인 가설
 `custom-nginx` 하위 폴더에서 `git add .` 를 실행하여
 상위 폴더의 변경 파일들이 스테이징에 포함되지 않음
-
 ## 확인
 ```bash
 git status
@@ -626,14 +618,11 @@ git status
 ```bash
 # 1. 상위 폴더로 이동
 cd ..
-
 # 2. 전체 변경 사항 스테이징
 git add .
-
 # 3. 커밋
 git commit -m "커밋 메시지"
 ```
-
 ## 대안
 현재 위치에서 상위 경로까지 직접 지정
 ```bash
@@ -642,7 +631,6 @@ git add ../docs/screenshots/b-m.png
 git rm ../docs/screenshots/Bindmount-test.png
 git commit -m "커밋 메시지"
 ```
-
 
 ## 10. 회고
 
