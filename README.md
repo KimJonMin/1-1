@@ -568,279 +568,81 @@ node_modules/
 
 # 🛠️ Docker 트러블슈팅 보고서: 포트 충돌 해결.1
 
-## 1. 문제 (Problem)
-- **상황**: `docker run -d -p 8080:80 my-web-server` 명령어를 실행했으나 컨테이너가 정상적으로 뜨지 않고 에러 발생.
-- **에러 메시지**: 
-  `docker: Error response from daemon: failed to set up container networking: ... Bind for 0.0.0.0:8080 failed: port is already allocated`
-- **현상**: 호스트 PC의 **8080번 포트**를 이미 다른 프로세스가 점유하고 있어 도커가 해당 포트를 사용할 수 없음.
+# 포트 충돌 트러블슈팅
 
----
+## 문제
+`docker run -d -p 8080:80 my-web-server` 실행 시 아래 에러 발생
 
-## 2. 원인 가설 (Hypothesis)
-1. **기존 컨테이너 존재**: 이전에 실행했던 다른 도커 컨테이너가 8080 포트를 점유하고 있을 가능성.
-2. **로컬 서비스 점유**: PC 내의 다른 소프트웨어(예: Spring Boot, Tomcat, Jenkins 등)가 8080 포트를 사용 중일 가능성.
+```
+Bind for 0.0.0.0:8080 failed: port is already allocated
+```
 
----
+## 원인 가설
+이전에 실행한 컨테이너가 8080 포트를 아직 점유하고 있음
 
-## 3. 확인 (Verification)
-어떤 프로세스가 포트를 사용 중인지 터미널에서 확인합니다.
-
-### 3.1 실행 중인 도커 컨테이너 확인
-```bash
-docker ps
-
-### 3.2 로컬 프로세스 확인 (Linux/macOS)
-sudo lsof -i :8080
-
-4. 해결 및 대안 (Solution/Alternative)
-   해결 방법 1: 기존 프로세스 종료
-
-  도커 컨테이너인 경우:
-
-    docker stop <컨테이너_ID>
-    docker rm <컨테이너_ID>
-
-  로컬 프로세스인 경우 (PID가 1234일 때):
-
-    kill -9 1234
-
-
-  해결 방법 2: 호스트 포트 번호 변경 (대안)
- 
-   # 호스트 포트를 8080 대신 8081로 변경하여 실행
-   docker run -d -p 8081:80 my-web-server   
-
-
-# 🛠️ Docker 트러블슈팅 보고서.1
-
-## Case 1. 포트 충돌 문제
-
-### 1. 문제 (Problem)
-- **명령어**: `docker run -d -p 8080:80 my-web-server` 실행 시 오류 발생
-- **에러 메시지**:
-  ```
-  docker: Error response from daemon: Bind for 0.0.0.0:8080 failed: port is already allocated
-  ```
-- **현상**: 호스트 PC의 **8080번 포트**를 이미 다른 프로세스가 점유하고 있어 도커가 해당 포트를 사용할 수 없음.
-
----
-
-### 2. 원인 가설 (Hypothesis)
-1. **기존 컨테이너 존재**: 이전에 실행했던 다른 도커 컨테이너가 8080 포트를 점유하고 있을 가능성.
-2. **로컬 서비스 점유**: PC 내의 다른 소프트웨어(예: Spring Boot, Tomcat, Jenkins 등)가 8080 포트를 사용 중일 가능성.
-
----
-
-### 3. 확인 (Verification)
-
-#### 3.1 실행 중인 도커 컨테이너 확인
+## 확인
 ```bash
 docker ps
 ```
-- 결과 중 `PORTS` 열에 `0.0.0.0:8080->80/tcp`가 포함된 컨테이너가 있는지 확인합니다.
+→ 8080 포트를 사용 중인 컨테이너 존재 확인
 
-#### 3.2 로컬 프로세스 확인 (Linux/macOS)
+## 해결
 ```bash
-sudo lsof -i :8080
+docker stop $(docker ps -q)
+docker run -d -p 8080:80 my-web-server
 ```
-- 특정 PID(프로세스 ID)와 프로그램 이름이 나타난다면 해당 프로세스가 원인입니다.
 
----
-
-### 4. 해결 및 대안 (Solution/Alternative)
-
-#### ✅ 방법 1: 기존 프로세스 종료
-- **도커 컨테이너인 경우**:
-  ```bash
-  docker stop <컨테이너_ID>
-  docker rm <컨테이너_ID>
-  ```
-- **로컬 프로세스인 경우 (PID가 1234일 때)**:
-  ```bash
-  kill -9 1234
-  ```
-
-#### ✅ 방법 2: 호스트 포트 번호 변경 (대안)
+## 대안
 ```bash
-# 호스트 포트를 8080 대신 8081로 변경하여 실행
 docker run -d -p 8081:80 my-web-server
 ```
-- 실행 후 브라우저에서 `http://localhost:8081`로 접속합니다.
+→ `http://localhost:8081` 로 접속
 
----
 
-## Case 2. Dockerfile 파일명 오류 문제
 
-### 1. 문제 (Problem)
-- **명령어**: `mv Dockerfile.txt Dockerfile` 실행 시 오류 발생
-- **에러 메시지**:
-  ```
-  mv: cannot stat 'Dockerfile.txt': No such file or directory
-  ```
-- **현상**: `Dockerfile.txt`라는 이름의 파일이 존재하지 않아 이름 변경 실패.
+# Git 커밋 실패 트러블슈팅.2
 
----
+## 문제
+`git add .` 후 `git commit` 실행 시 커밋이 되지 않음
 
-### 2. 원인 가설 (Hypothesis)
-1. **파일명 불일치**: 실제 파일 이름이 `Dockerfile.txt`가 아닌 다른 이름(예: `docker.1`)으로 저장되어 있을 가능성.
-2. **파일 미생성**: Dockerfile 자체가 아직 생성되지 않았을 가능성.
-
----
-
-### 3. 확인 (Verification)
-
-#### 3.1 현재 디렉토리 파일 목록 확인
-```bash
-ls
 ```
-- 실제 존재하는 파일 이름을 확인합니다.
-- **확인 결과**: `docker.1`, `index.html` 파일이 존재함을 확인.
-
----
-
-### 4. 해결 및 대안 (Solution/Alternative)
-
-#### ✅ 방법 1: 실제 파일명으로 변경 (근본 해결)
-`ls`로 확인한 실제 파일명(`docker.1`)을 사용하여 이름을 변경합니다.
-```bash
-mv docker.1 Dockerfile
-```
-- 변경 후 `ls`로 `Dockerfile`이 정상 생성되었는지 재확인합니다.
-```bash
-ls
-# 결과: Dockerfile  index.html ✅
+no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-#### ✅ 방법 2: Dockerfile 직접 생성 (대안)
-파일 자체가 없다면 새로 생성합니다.
+## 원인 가설
+`custom-nginx` 하위 폴더에서 `git add .` 를 실행하여
+상위 폴더의 변경 파일들이 스테이징에 포함되지 않음
+
+## 확인
 ```bash
-vi Dockerfile
-# 또는
-touch Dockerfile
+git status
+```
+→ 아래 파일들이 스테이징 안 됨 확인
+- `modified: ../README.md`
+- `deleted: ../docs/screenshots/Bindmount-test.png`
+- `untracked: ../docs/screenshots/b-m.png`
+
+## 해결
+```bash
+# 1. 상위 폴더로 이동
+cd ..
+
+# 2. 전체 변경 사항 스테이징
+git add .
+
+# 3. 커밋
+git commit -m "커밋 메시지"
 ```
 
-
-# 🛠️ Docker 트러블슈팅 문제 해결.2
-
-## Case 1. 포트 충돌 문제 (Port Already Allocated)
-
-### 1. 문제 (Problem)
-- **실행 환경**: `~/1-1` 디렉토리
-- **명령어**:
-  ```bash
-  docker run -d -p 8080:80 my-web-server
-  ```
-- **에러 메시지**:
-  ```
-  docker: Error response from daemon: failed to set up container networking:
-  driver failed programming external connectivity on endpoint festive_goldstine
-  (d239f90d3ccf307d270a1963986d66c0786218f69c381914f9562fd3cf79ffe9):
-  Bind for 0.0.0.0:8080 failed: port is already allocated
-  ```
-- **현상**: 호스트 PC의 **8080번 포트**를 이미 다른 프로세스가 점유하고 있어
-  도커가 해당 포트를 사용할 수 없음.
-
----
-
-### 2. 원인 가설 (Hypothesis)
-1. **기존 컨테이너 존재**: 이전에 실행했던 다른 도커 컨테이너가 8080 포트를 점유 중.
-2. **로컬 서비스 점유**: PC 내의 다른 소프트웨어(예: Spring Boot, Tomcat, Jenkins 등)가
-   8080 포트를 사용 중.
-
----
-
-### 3. 확인 (Verification)
-
-#### 3.1 실행 중인 도커 컨테이너 확인
+## 대안
+현재 위치에서 상위 경로까지 직접 지정
 ```bash
-docker ps
-```
-> 결과 중 `PORTS` 열에 `0.0.0.0:8080->80/tcp`가 있는 컨테이너가 있는지 확인합니다.
-
-#### 3.2 로컬 프로세스 확인 (Linux/macOS)
-```bash
-sudo lsof -i :8080
-```
-> 특정 PID와 프로그램 이름이 나타난다면 해당 프로세스가 원인입니다.
-
----
-
-### 4. 해결 및 대안 (Solution/Alternative)
-
-#### ✅ 방법 1: 기존 프로세스 종료 후 재실행
-- **도커 컨테이너인 경우**:
-  ```bash
-  docker stop <컨테이너_ID>
-  docker rm <컨테이너_ID>
-  # 이후 재실행
-  docker run -d -p 8080:80 my-web-server
-  ```
-- **로컬 프로세스인 경우 (PID가 1234일 때)**:
-  ```bash
-  kill -9 1234
-  # 이후 재실행
-  docker run -d -p 8080:80 my-web-server
-  ```
-
-#### ✅ 방법 2: 호스트 포트 번호 변경 (대안)
-```bash
-# 호스트 포트를 8080 대신 8081로 변경하여 실행
-docker run -d -p 8081:80 my-web-server
-```
-> 실행 후 브라우저에서 `http://localhost:8081`로 접속합니다.
-
----
-
-## Case 2. Dockerfile 파일명 오류 문제 (No Such File or Directory)
-
-### 1. 문제 (Problem)
-- **실행 환경**: `~/custom-nginx` 디렉토리
-- **명령어**:
-  ```bash
-  mv Dockerfile.txt Dockerfile
-  ```
-- **에러 메시지**:
-  ```
-  mv: cannot stat 'Dockerfile.txt': No such file or directory
-  ```
-- **현상**: `Dockerfile.txt`라는 이름의 파일이 존재하지 않아 이름 변경 실패.
-
----
-
-### 2. 원인 가설 (Hypothesis)
-1. **파일명 불일치**: 실제 파일 이름이 `Dockerfile.txt`가 아닌 다른 이름으로 저장됨.
-2. **파일 미생성**: Dockerfile 자체가 아직 생성되지 않았을 가능성.
-
----
-
-### 3. 확인 (Verification)
-
-#### 3.1 현재 디렉토리 파일 목록 확인
-```bash
-ls
-```
-> **확인 결과**: `docker.1`, `index.html` 파일이 존재함을 확인.
-
----
-
-### 4. 해결 및 대안 (Solution/Alternative)
-
-#### ✅ 방법 1: 실제 파일명으로 변경 (근본 해결)
-```bash
-mv docker.1 Dockerfile
-```
-- 변경 후 `ls`로 정상 생성 여부를 재확인합니다.
-```bash
-ls
-# 결과: Dockerfile  index.html ✅
+git add ../README.md
+git add ../docs/screenshots/b-m.png
+git rm ../docs/screenshots/Bindmount-test.png
+git commit -m "커밋 메시지"
 ```
 
-#### ✅ 방법 2: Dockerfile 직접 생성 (대안)
-```bash
-vi Dockerfile
-# 또는
-touch Dockerfile
-```
 
 ## 10. 회고
 
