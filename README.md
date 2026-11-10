@@ -296,12 +296,8 @@ docker run -d -p 8080:80 my-web-server
 ![d-c-f](docs/screenshots/d-c-f.png)
 ![d-c-f2](docs/screenshots/d-c-f2.png)
 ![d-c-f3](docs/screenshots/d-c-f3.png)
+![d-c-f4](docs/screenshots/d-c-f4.png)
 
-![custom-image-lsit](docs/screenshots/custom-image-lsit.png)
-"
-=> Dockerfile.txt라는 파일을 찾으려 했으나, 해당 폴더에 그 이름의 파일이 없어서   
-   발생한 에러
-   docker.1이라는 이름을 가진 파일을 **Dockerfile**로 이름을 바꿔서 해결
 
 ![custom-image](docs/screenshots/custom-image.png)
 
