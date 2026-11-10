@@ -246,6 +246,8 @@ docker ps
 # 👉 http://localhost:8080 접속해보세요!
 ```
 ![docker](docs/screenshots/docker.png)
+
+브라우저에서 확인
 ![docker-run](docs/screenshots/docker-run.png)
 ![welcome](docs/screenshots/welcome.png)
 
@@ -290,6 +292,10 @@ docker run -d -p 8080:80 my-web-server
 
 
 # 커스텀이미지 제작
+
+![d-c-f](docs/screenshots/d-c-f.png)
+![d-c-f2](docs/screenshots/d-c-f2.png)
+![d-c-f3](docs/screenshots/d-c-f3.png)
 
 ![custom-image-lsit](docs/screenshots/custom-image-lsit.png)
 "
