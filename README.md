@@ -340,20 +340,12 @@ docker run -d -p 8080:80 my-web-server
 
 바운드 마운트 
 ![b-m](docs/screenshots/b-m.png)
-
-
-![docker-port-check.1](docs/screenshots/docker-port-check.1.png)
-
-![docker-vloum-check](docs/screenshots/docker-vloum-check.png)
-
-=> index.html이 파일이 아니라 폴더였기 때문에 에러 발생 -> 삭제후 다시 
-   echo "Hello Docker! /h1" > index.html: 이제 진짜 내용이 들어있는 index.html 파일을 새로 생성
-
+![b-t](docs/screenshots/B-t.png)
 
 
 Docker 볼륨 영속성 검증
-
 ![volum-0](docs/screenshots/volum-0.png)
+
 
 **결론**
 - 볼륨은 **컨테이너의 수명과 완전히 분리**되어 독립적으로 존재한다.
