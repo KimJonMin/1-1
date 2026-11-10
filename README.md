@@ -420,6 +420,9 @@ git log --oneline
 
 ![git-user.](docs/screenshots/git-user..png)
 
+![git add](docs/screenshots/git add.png)
+
+
 > ✅ 커밋 기록이 뜨면 성공이에요!
 
 ---
